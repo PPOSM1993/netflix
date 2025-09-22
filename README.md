@@ -60,8 +60,8 @@ Estos son los pasos para levantar el proyecto en tu máquina local:
    npm run dev
    ```
 
-   5. Abre la aplicación en tu navegador:
-bash
+5. Abre la aplicación en tu navegador:
+    ```bash
       http://localhost:3000
       ```
 
