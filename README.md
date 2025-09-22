@@ -84,7 +84,7 @@ Estas son algunas de las cosas que el clon incluye / podría incluir (adaptar se
 - Diseño responsivo — se ve bien en móviles, tablets y desktop.
 - Pantalla de inicio con carruseles de contenido.
 - Páginas de detalle para películas / series.
-- Búsqueda de contenido.
+- Búsqueda de contenido. 
 - Autenticación básica (login/signup) (si lo hiciste).
 - Estado de carga, manejo de errores al cargar datos.
 - Optimización de imágenes, lazy loading, etc.
