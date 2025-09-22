@@ -3,7 +3,11 @@ import React from "react";
 export default function MoviePage() {
   return (
     <>
-      Movie Page
+      <div>
+        <h1>
+          Movie Page
+        </h1>
+      </div>
     </>
   );
 }
