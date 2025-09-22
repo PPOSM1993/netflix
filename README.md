@@ -50,7 +50,9 @@ Estos son los pasos para levantar el proyecto en tu máquina local:
 
 3. Instala las dependencias:
 
-   ```npm install
+   ```bash
+   npm install
+   ```
 
 # o usando yarn
 
