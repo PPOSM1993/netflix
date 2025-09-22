@@ -1,36 +1,147 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Netflix Clone
 
-## Getting Started
+Este es un clon del sitio de Netflix, construido con **Next.js**, usando TypeScript, Tailwind CSS, y otras herramientas modernas. El objetivo es practicar desarrollo frontend y backend, consumo de APIs, diseño responsivo, etc.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠 Tecnologías usadas
+
+- **Next.js** — framework React para aplicaciones fullstack.  
+- **TypeScript** — para mayor seguridad de tipos.  
+- **Tailwind CSS** — para estilos rápidos, útiles para prototipado y diseño responsivo.  
+- **ESLint** — para asegurar calidad de código.  
+- **postcss** / **autoprefixer** — herramientas de procesamiento de CSS.  
+- (Otras que uses: p.ej. autenticación, fetch de datos, SSR / SSG, etc.)  
+
+---
+
+## ⚙️ Estructura del proyecto
+
+Aquí una descripción general de los directorios principales:
+
+| Carpeta / Archivo | Contenido |
+|------------------|-----------|
+| `app/`           | Código de las páginas y componentes de Next.js (rutas, layouts, etc.) |
+| `components/ui/` | Componentes reutilizables de interfaz, como cabecera, tarjetas de película/serie, barra de navegación, etc. |
+| `lib/`           | Funciones de utilería / lógica de negocio / llamadas a API etc. |
+| `public/`        | Recursos estáticos: imágenes, íconos, fuentes, etc. |
+| `package.json`   | Dependencias y scripts disponibles. |
+| `tailwind.config.ts` | Configuración de Tailwind CSS. |
+| `next.config.ts` | Configuración específica de Next.js. |
+| Otros archivos de configuración: ESLint, PostCSS, tsconfig, etc. |
+
+---
+
+## 🚀 Cómo correrlo localmente
+
+Estos son los pasos para levantar el proyecto en tu máquina local:
+
+1. Clona este repositorio:
+
+   ```bash
+   git clone https://github.com/PPOSM1993/netflix.git
+
+
+2. Entra al directorio del proyecto:
+
+   ```bash
+   cd netflix
+   ```
+
+3. Instala las dependencias:
+
+   ```npm install
+
+# o usando yarn
+
+yarn
+
+# o pnpm si usas pnpm
+
+pnpm install
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Inicia el servidor de desarrollo:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   # o usando yarn
+   yarn dev
 
-## Learn More
+   # o usando pnpm
+   pnpm dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+   5. Abre la aplicación en tu navegador:
+   ```bash
+      http://localhost:3000
+      ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Scripts disponibles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+En package.json hay varios scripts útiles, como:
 
-## Deploy on Vercel
+| Comando | Qué hace                                                               |
+| ------- | ---------------------------------------------------------------------- |
+| `dev`   | Inicia el servidor en modo desarrollo.                                 |
+| `build` | Genera una versión lista para producción.                              |
+| `start` | Sirve la versión de producción.                                        |
+| `lint`  | Analiza el código para detectar problemas de estilo / errores comunes. |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📐 Características
+
+Estas son algunas de las cosas que el clon incluye / podría incluir (adaptar según lo que hayas hecho):
+
+- Diseño responsivo — se ve bien en móviles, tablets y desktop.
+- Pantalla de inicio con carruseles de contenido.
+- Páginas de detalle para películas / series.
+- Búsqueda de contenido.
+- Autenticación básica (login/signup) (si lo hiciste).
+- Estado de carga, manejo de errores al cargar datos.
+- Optimización de imágenes, lazy loading, etc.
+
+## 🔮 Mejoras / Futuras funcionalidades
+
+Si quieres seguir expandiéndolo, algunas ideas:
+
+- Autenticación real con backend / base de datos.
+- Gestión de usuarios (listas de favoritos, historial, etc.).
+- Streaming de video (mock o real).
+- Traducciones / multilanguage.
+- Mejora del SEO, metadatos dinámicos.
+- Tests (unitarios / de integración).
+- Despliegue automático (por ejemplo en Vercel).
+
+## 📂 Cómo contribuir
+
+Si alguien más quiere colaborar, sugerencias:
+
+1. Haz un fork del repositorio
+2. Crea una rama nueva con la funcionalidad o corrección que quieras implementar:
+
+```bash
+git checkout -b mi-nueva-funcionalidad
+```
+3. Haz tus cambios, prueba bien.
+4. Abre un pull request describiendo lo que haces.
+
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT (o la que quieras usar).
+Puedes usarlo con fines educativos, personales, etc., pero si lo distribuyes o lo haces público, dame crédito.
+
+## ⚠️ Notas importantes
+
+- Algunos assets / APIs pueden estar simulados (mock), no ser datos reales de Netflix.
+- Verifica las variables de entorno si usas alguna (por ejemplo, para la API de películas, claves de servicio, etc.).
+- Puede que haya dependencias que requieran versiones específicas de Node.js / npm / yarn / pnpm; revisa package.json para   ver requerimientos.
+
+## ℹ️ Contacto
+
+Si tienes dudas, sugerencias o quieres charlar del proyecto, puedes contactarme en:
+PPOSM1993 — GitHub
+
