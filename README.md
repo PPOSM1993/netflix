@@ -32,7 +32,7 @@ Aquí una descripción general de los directorios principales:
 
 ---
 
-## 🚀 Cómo correrlo localmente
+## 🚀 Cómo Ejecutarlo Localmente
 
 Estos son los pasos para levantar el proyecto en tu máquina local:
 
@@ -54,30 +54,14 @@ Estos son los pasos para levantar el proyecto en tu máquina local:
    npm install
    ```
 
-# o usando yarn
-
-yarn
-
-# o pnpm si usas pnpm
-
-pnpm install
-
-```
-
 4. Inicia el servidor de desarrollo:
 
    ```bash
    npm run dev
-
-   # o usando yarn
-   yarn dev
-
-   # o usando pnpm
-   pnpm dev
    ```
 
    5. Abre la aplicación en tu navegador:
-   ```bash
+bash
       http://localhost:3000
       ```
 
@@ -127,9 +111,9 @@ Si alguien más quiere colaborar, sugerencias:
 ```bash
 git checkout -b mi-nueva-funcionalidad
 ```
+
 3. Haz tus cambios, prueba bien.
 4. Abre un pull request describiendo lo que haces.
-
 
 ## 📄 Licencia
 
