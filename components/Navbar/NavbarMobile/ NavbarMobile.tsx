@@ -1,11 +1,11 @@
 import React from "react";
 
 
-export default function TitleLogin() {
+export default function NavbarMobile() {
     return (
         <>
             <div>
-                <h1>TitleLogin</h1>
+                <p>Navbar Mobile</p>
             </div>
         </>
     )
