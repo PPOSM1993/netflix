@@ -8,6 +8,7 @@ export default function Home() {
     <>
       <div className="relative bg-zinc-900">
         <Navbar />
+        
       </div>
     </>
   );
