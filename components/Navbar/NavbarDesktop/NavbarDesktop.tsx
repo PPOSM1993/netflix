@@ -1,14 +1,23 @@
+"use client";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Search, BellRing } from "lucide-react";
-import { Logo } from "@/components/Logo/Logo";
+import { Logo } from "@/components/Shared/Logo/Logo";
+import { itemsNavbar } from "@/data/itemsNavbar";
+import Link from "next/link";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
+
 export default function NavbarDesktop() {
+
+    const scrollPosition = useScrollPosition();
+
 
     return (
         <>
             <div
                 className={cn(
                     "z-30 left-0 right-0 top-0 h-16 fixed w-full transition-all duration-300",
+                    scrollPosition > 20 ? "bg-black" : "bg-transparent"
                 )}
             >
                 <div className="px-[4%] mx-auto h-full">
@@ -16,10 +25,15 @@ export default function NavbarDesktop() {
                         <div className="flex gap-2 items-center">
                             <Logo />
                             <div className="ml-10 flex gap-4">
-                                <p>Home</p>
-                                <p>Movies</p>
-                                <p>Series</p>
-                                <p>Profile</p>
+                                {itemsNavbar.map((item, index) => (
+                                    <Link
+                                        key={index}
+                                        href={item.link}
+                                        className="hover:text-gray-300 transition-all duration-300 font-bold"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                ))}
                             </div>
                         </div>
 
@@ -30,7 +44,6 @@ export default function NavbarDesktop() {
                             <div className="flex gap-2 items-center">
                                 {/* TODO: Add user profile */}
                                 <p>Pedro</p>
-                                <p>Sign Out</p>
                             </div>
                         </div>
                     </div>
