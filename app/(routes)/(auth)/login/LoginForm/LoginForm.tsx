@@ -18,9 +18,12 @@ import {
 import { Input } from "@/components/ui/input"
 import { FormError } from "../FormError";
 import { useState } from "react";
+import { login } from "@/actions/login";
+import { toast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 
 export function LoginForm() {
-
+    const router = useRouter();
     const [error, setError] = useState<string | undefined>();
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -31,11 +34,21 @@ export function LoginForm() {
         }
     })
 
-    function onSubmit(data: z.infer<typeof formSchema>) {
-        //Do something with the form values
-        // This will be type-safe and validate
-        console.log(data)
-    }
+    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+        try {
+            login(values).then((data) => {
+                setError(data?.error);
+                if (data?.success) {
+                    toast({
+                        title: "Login se ha realizado con éxito",
+                    });
+                }
+            });
+            router.push("/profiles");
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <>
@@ -79,7 +92,7 @@ export function LoginForm() {
                         )}
                     />
 
-                    <FormError message={error}/>
+                    <FormError message={error} />
 
 
                     <Button type="submit" className="w-full bg-[#E50914]">
