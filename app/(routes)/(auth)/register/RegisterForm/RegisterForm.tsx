@@ -33,11 +33,19 @@ export function RegisterForm() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post("/api/auth/register", values);
+
+      toast({
+        title: "User has been registered successfully",
+      });
+      router.push("/profiles");
     } catch (error) {
-      console.error(error);
+      console.log(error);
+      toast({
+        title: "Something went wrong, please try again",
+        variant: "destructive",
+      });
     }
   };
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
