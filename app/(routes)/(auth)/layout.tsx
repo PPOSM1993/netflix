@@ -1,4 +1,5 @@
 import { Logo } from "@/components/Shared/Logo";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function AuthLayout({
   children,
@@ -23,10 +24,12 @@ export default function AuthLayout({
           <div className="flex min-h-screen w-full items-center justify-center gap-4">
             <div className="bg-black/70 px-14 py-16 w-full max-w-md">
               {children}
+              <Toaster />
+
             </div>
           </div>
           <br />
-          <br />  
+          <br />
           <br />
         </div>
       </div>
