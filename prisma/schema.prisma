@@ -57,4 +57,4 @@ model PopularMovie {
   movieVideo   String
 
   ranking Int
-} 
+}
