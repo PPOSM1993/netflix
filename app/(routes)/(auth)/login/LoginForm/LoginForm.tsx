@@ -16,7 +16,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { FormError } from "../FormError";
+import { FormError } from "./FormError";
 import { useState } from "react";
 import { login } from "@/actions/login";
 import { toast } from "@/hooks/use-toast";

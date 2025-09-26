@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Checkbox } from "@/components/ui/checkbox";
 
 import { LoginForm } from "./LoginForm";
-import { Terms } from "./Terms";
+import { Terms } from "../components/Terms";
 
 export default async function LoginPage() {
   return (
