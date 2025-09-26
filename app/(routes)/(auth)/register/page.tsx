@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { RegisterForm } from "./RegisterForm";
-import { Terms } from "../login/Terms/Terms";
+import { Terms } from "../components/Terms/Terms";
 
 export default function RegisterPage() {
     return (
