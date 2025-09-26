@@ -3,47 +3,47 @@ import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-    const user = await currentUser();
+  const user = await currentUser();
 
+  const { profileName, avatarUrl } = await req.json();
 
-    const { profileName, avatarUrl } = await req.json();
+  if (!user) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
-    if (!user) {
-        return NextResponse.json({ message: "No user logged in" }, { status: 401 });
-    }
+  if (!profileName || !avatarUrl || !user.id) {
+    return new NextResponse("Invalid data", { status: 400 });
+  }
 
-    if (!profileName || !avatarUrl || !user?.id) {
-        return NextResponse.json({ message: "Invalid data" }, { status: 400 });
-    }
+  const userCreated = await db.userNetflix.create({
+    data: {
+      profileName,
+      avatarUrl,
+      userId: user.id,
+    },
+  });
 
-    const userCreated = await db.userNetflix.create({
-        data: {
-            profileName,
-            avatarUrl,
-            userId: user.id,
-        }
-    });
-
-    return NextResponse.json(userCreated);
+  return NextResponse.json(userCreated);
 }
 
 export async function DELETE(req: Request) {
-    const user = await currentUser();
+  const user = await currentUser();
 
-    if (!user) {
-        return NextResponse.json({ message: "No user logged in" }, { status: 401 });
-    }
-    const { userIdNetflix } = await req.json();
+  if (!user) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
-    if(!userIdNetflix) {
-        return new NextResponse("Id is required", { status: 400 });
-    }
+  const { userIdNetflix } = await req.json();
 
-    const userDeleted = await db.userNetflix.deleteMany({
-        where: {
-            userId: userIdNetflix,
-        }
-    });
+  if (!userIdNetflix) {
+    return new NextResponse("Id is required", { status: 400 });
+  }
 
-    return NextResponse.json(userDeleted);
+  const userDeleted = await db.userNetflix.delete({
+    where: {
+      id: userIdNetflix,
+    },
+  });
+
+  return NextResponse.json(userDeleted);
 }

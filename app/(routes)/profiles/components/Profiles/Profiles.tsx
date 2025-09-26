@@ -19,27 +19,34 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-
 import { Trash2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 export default function Profiles(props: ProfilesProps) {
     const { users } = props;
-    const [manageProfile, setManageProfile] = useState(false);
+
+    // 👇 guardamos los usuarios en estado local para poder actualizarlos
+    const [profiles, setProfiles] = useState(users);
+    const [manageProfiles, setManageProfiles] = useState(false);
 
     const deleteUser = async (userIdNetflix: string) => {
         try {
-            axios.delete("/api/userNetflix", { data: { userIdNetflix } });
+            await axios.delete("/api/userNetflix", { data: { userIdNetflix } });
+
+            // 👇 eliminamos el perfil del estado local inmediatamente
+            setProfiles((prev) => prev.filter((u) => u.id !== userIdNetflix));
+
+            toast({ title: "Perfil eliminado correctamente ✅" });
         } catch (error) {
-            console.error(error);
-            toast({ title: "❌ Ops! Something went wrong", variant: "destructive" });
+            console.log(error);
+            toast({ title: "Ops! Ha ocurrido un error", variant: "destructive" });
         }
-    }
+    };
 
     return (
         <>
             <div className="flex gap-7">
-                {users.map((user) => (
+                {profiles.map((user) => (
                     <div
                         key={user.id}
                         className="text-center relative cursor-pointer"
@@ -50,7 +57,7 @@ export default function Profiles(props: ProfilesProps) {
                             width={140}
                             height={140}
                             className={cn(
-                                manageProfile ? "blur-md" : "",
+                                manageProfiles ? "blur-md" : "",
                                 "border-transparent hover:border-2 hover:border-white rounded-md"
                             )}
                         />
@@ -61,7 +68,7 @@ export default function Profiles(props: ProfilesProps) {
                         <div
                             className={cn(
                                 "top-14 cursor-pointer w-full flex gap-4 items-center justify-center z-20",
-                                manageProfile ? "absolute" : "hidden"
+                                manageProfiles ? "absolute" : "hidden"
                             )}
                         >
                             <AlertDialog>
@@ -99,9 +106,9 @@ export default function Profiles(props: ProfilesProps) {
                     variant="outline"
                     size="lg"
                     className="text-gray-500 border-gray-500"
-                    onClick={() => setManageProfile(true)}
+                    onClick={() => setManageProfiles(!manageProfiles)}
                 >
-                    Profile Admin
+                    Admim Profiles
                 </Button>
             </div>
         </>
