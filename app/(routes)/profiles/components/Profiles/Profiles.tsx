@@ -21,19 +21,30 @@ import {
 } from "@/components/ui/alert-dialog"
 import { Trash2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { useCurrentNetflixUser } from "@/hooks/use-current.users";
+import { UserNetflix } from "@prisma/client";
+import { useRouter } from "next/navigation";
 
 export default function Profiles(props: ProfilesProps) {
     const { users } = props;
+    const { changeCurrentUser, currentUser } = useCurrentNetflixUser();
+    console.log(currentUser);
 
-    // 👇 guardamos los usuarios en estado local para poder actualizarlos
+
+
     const [profiles, setProfiles] = useState(users);
     const [manageProfiles, setManageProfiles] = useState(false);
+    const router = useRouter(); // 👈 aquí inicializas
+
+    const onClickUser = (user: UserNetflix) => {
+        changeCurrentUser(user);
+        router.push("/"); // 👈 ya funciona en App Router
+    };
 
     const deleteUser = async (userIdNetflix: string) => {
         try {
             await axios.delete("/api/userNetflix", { data: { userIdNetflix } });
 
-            // 👇 eliminamos el perfil del estado local inmediatamente
             setProfiles((prev) => prev.filter((u) => u.id !== userIdNetflix));
 
             toast({ title: "Perfil eliminado correctamente ✅" });
@@ -50,6 +61,7 @@ export default function Profiles(props: ProfilesProps) {
                     <div
                         key={user.id}
                         className="text-center relative cursor-pointer"
+                        onClick={() => onClickUser(user)}
                     >
                         <Image
                             src={user.avatarUrl || ""}
