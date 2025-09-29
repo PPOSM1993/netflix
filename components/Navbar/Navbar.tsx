@@ -1,15 +1,16 @@
 import NavbarDesktop from "./NavbarDesktop/NavbarDesktop";
-import NavbarMobile from "./NavbarMobile/ NavbarMobile";
+import { NavbarProps } from "./Navbar.type";
+import { NavbarMobile } from "./NavbarMobile";
 
-export function Navbar() {
-
+export function Navbar(props: NavbarProps) {
+  const { users } = props;
   return (
     <nav>
       <div className="hidden mx-auto md:block">
-        <NavbarDesktop />
+        <NavbarDesktop users={users} />
       </div>
       <div className="md:hidden">
-        <NavbarMobile />
+        <NavbarMobile  users={users} />
       </div>
     </nav>
   );
