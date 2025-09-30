@@ -6,7 +6,8 @@ import { SliderVideo } from "./(routes)/(home)/components/SliderVideo";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { auth } from "@/auth";
-import { TrendingMovies } from "./(routes)/upload-movies/components/TrendingMovies";
+import { TrendingMovies } from "./(routes)/(home)/components/TrendingMovies";
+
 
 export default async function Home() {
 
@@ -35,6 +36,7 @@ export default async function Home() {
       <div className="relative bg-zinc-900">
         <Navbar users={usersNetflix} />
         <SliderVideo />
+        <TrendingMovies movies={trendingMovies} />
       </div>
     </>
   );
