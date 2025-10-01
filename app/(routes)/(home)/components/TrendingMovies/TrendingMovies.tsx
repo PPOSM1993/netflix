@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { TrendingMoviesProps } from "./TrendingMovies.types";
 import { InfoExtraFilm } from "./InfoExtraFilm";
+import { ChaptersInfo } from "@/components/Shared/ChaptersInfo";
 
 export function TrendingMovies(props: TrendingMoviesProps) {
   const { movies } = props;
@@ -19,7 +20,7 @@ export function TrendingMovies(props: TrendingMoviesProps) {
               className="flcursor-pointer transition delay-300 hover:h-[14vh] group relative"
             >
               <div
-                className="flex transition duration 
+                className="flex transition duration
               group-hover:opacity-90 delay-300 w-full justify-center"
               >
                 <Image
@@ -38,6 +39,7 @@ export function TrendingMovies(props: TrendingMoviesProps) {
                 />
               </div>
               <InfoExtraFilm movie={movie} />
+              <ChaptersInfo age={movie.age} duration={movie.duration} />
             </div>
           ))}
         </div>

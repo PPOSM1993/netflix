@@ -1,10 +1,14 @@
 "use client"
+import dynamic from "next/dynamic";
+
+
 import { ActionsButtonsFilm } from "@/components/Shared/ActionsButtonsFilm";
 import { InfoExtraFilmProps } from "./InfoExtraFilm.types";
+import { ChaptersInfo } from "@/components/Shared/ChaptersInfo";
+import { FilmGenres } from "@/components/Shared/FilmGenres";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
-import dynamic from "next/dynamic";
 
 export function InfoExtraFilm(props: InfoExtraFilmProps) {
     const { movie } = props;
@@ -14,7 +18,7 @@ export function InfoExtraFilm(props: InfoExtraFilmProps) {
             group-hover:lg:scale-150 group-hover:md:scale-150 group-hover:-translate-y-[5vw] group-hover:opacity-100">
                 <div className="aspect-video">
                     <ReactPlayer
-                        url={movie.trailerVideo}
+                        src={movie.trailerVideo}
                         loop={true}
                         width="100%"
                         height="100%"
@@ -26,6 +30,8 @@ export function InfoExtraFilm(props: InfoExtraFilmProps) {
 
                 <div className="p-4 shadow-lg">
                     <ActionsButtonsFilm idFilm={movie.id} />
+                    <ChaptersInfo age={movie.age} duration={movie.duration} />
+                    <FilmGenres genres={movie.genre} />
                 </div>
             </div>
         </>
