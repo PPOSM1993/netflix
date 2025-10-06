@@ -1,6 +1,9 @@
+Perfecto, te armo un README.md completo para tu Netflix Clone, incluyendo la sección de .env y Prisma/PostgreSQL, listo para agregar al proyecto:
+
 # Netflix Clone
 
-Este es un clon del sitio de Netflix, construido con **Next.js**, usando TypeScript, Tailwind CSS, y otras herramientas modernas. El objetivo es practicar desarrollo frontend y backend, consumo de APIs, diseño responsivo, etc.
+Este es un clon del sitio de **Netflix**, construido con **Next.js**, usando **TypeScript**, **Tailwind CSS**, y otras herramientas modernas.  
+El objetivo es practicar desarrollo **frontend** y **backend**, consumo de APIs, diseño responsivo, manejo de estado, etc.
 
 ---
 
@@ -8,38 +11,49 @@ Este es un clon del sitio de Netflix, construido con **Next.js**, usando TypeScr
 
 - **Next.js** — framework React para aplicaciones fullstack.  
 - **TypeScript** — para mayor seguridad de tipos.  
-- **Tailwind CSS** — para estilos rápidos, útiles para prototipado y diseño responsivo.  
+- **Tailwind CSS** — para estilos rápidos y diseño responsivo.  
 - **ESLint** — para asegurar calidad de código.  
-- **postcss** / **autoprefixer** — herramientas de procesamiento de CSS.  
-- (Otras que uses: p.ej. autenticación, fetch de datos, SSR / SSG, etc.)  
+- **PostCSS / Autoprefixer** — procesamiento y compatibilidad de CSS.  
+- **Prisma** — ORM para conectarse a PostgreSQL.  
+- **PostgreSQL** — base de datos relacional.  
+- (Otras que uses: autenticación, fetch de datos, SSR/SSG, etc.)
 
 ---
 
 ## ⚙️ Estructura del proyecto
 
-Aquí una descripción general de los directorios principales:
-
-| Carpeta / Archivo | Contenido |
-|------------------|-----------|
-| `app/`           | Código de las páginas y componentes de Next.js (rutas, layouts, etc.) |
-| `components/ui/` | Componentes reutilizables de interfaz, como cabecera, tarjetas de película/serie, barra de navegación, etc. |
-| `lib/`           | Funciones de utilería / lógica de negocio / llamadas a API etc. |
-| `public/`        | Recursos estáticos: imágenes, íconos, fuentes, etc. |
-| `package.json`   | Dependencias y scripts disponibles. |
-| `tailwind.config.ts` | Configuración de Tailwind CSS. |
-| `next.config.ts` | Configuración específica de Next.js. |
-| Otros archivos de configuración: ESLint, PostCSS, tsconfig, etc. |
+| Carpeta / Archivo     | Contenido |
+|----------------------|-----------|
+| `app/`               | Código de páginas y componentes de Next.js (rutas, layouts, etc.) |
+| `components/ui/`     | Componentes reutilizables de interfaz (cabecera, tarjetas de contenido, barra de navegación, etc.) |
+| `lib/`               | Funciones de utilidad / lógica de negocio / llamadas a API |
+| `prisma/`            | Esquema de Prisma y migraciones de la base de datos |
+| `public/`            | Recursos estáticos: imágenes, íconos, fuentes, etc. |
+| `package.json`       | Dependencias y scripts disponibles |
+| `tailwind.config.ts` | Configuración de Tailwind CSS |
+| `next.config.ts`     | Configuración de Next.js |
+| Otros archivos de configuración | ESLint, PostCSS, tsconfig, .env, etc. |
 
 ---
 
-## 🚀 Cómo Ejecutarlo Localmente
+## 🔑 Variables de entorno
 
-Estos son los pasos para levantar el proyecto en tu máquina local:
+Este proyecto utiliza **Prisma** y **PostgreSQL**, por lo que necesitas configurar algunas variables de entorno.
 
-1. Clona este repositorio:
+1. Crea un archivo `.env` en la raíz del proyecto:
 
-   ```bash
-   git clone https://github.com/PPOSM1993/netflix.git
+```env
+# URL de conexión a PostgreSQL
+DATABASE_URL="postgresql://usuario:password@localhost:5432/mi_base_de_datos?schema=public"
+
+# Puerto del servidor (opcional, por defecto 3000)
+PORT=3000
+
+# Clave secreta para JWT o autenticación
+AUTH_SECRET="tu_clave_super_secreta"
+
+# API keys o URLs de servicios externos (si aplica)
+MOVIES_API_KEY="tu_api_key_aqui"ps://github.com/PPOSM1993/netflix.git
 
 
 2. Entra al directorio del proyecto:
