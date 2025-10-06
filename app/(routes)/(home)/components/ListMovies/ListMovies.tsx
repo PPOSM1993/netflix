@@ -4,6 +4,7 @@ import { ListMoviesProps } from "./ListMovies.type";
 import { useLovedFilms } from "@/hooks/use-loved-films";
 import { useCurrentNetflixUser } from "@/hooks/use-current.users";
 
+
 export function ListMovies(props: ListMoviesProps) {
   const { movies } = props;
   const { lovedFilmsByUser } = useLovedFilms();
@@ -20,7 +21,7 @@ export function ListMovies(props: ListMoviesProps) {
         isMyList={true}
       />
       <BlockMovies
-        title="Most Recent Movies"
+        title="Must Favorite Movies"
         movies={movies}
         isMyList={false}
       />

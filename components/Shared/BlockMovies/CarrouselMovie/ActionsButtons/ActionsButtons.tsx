@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 
+import { ActionsButtonsProps } from "./ActionsButtons.types";
 import { ChevronDown, Play, ThumbsUp, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useLovedFilms } from "@/hooks/use-loved-films";
-import { ActionsButtonsProps } from "./ActionsButttons.type";
 
 export function ActionsButtons(props: ActionsButtonsProps) {
   const { movieId, movie, isMyList } = props;
@@ -55,7 +55,7 @@ export function ActionsButtons(props: ActionsButtonsProps) {
           <Button
             size="icon"
             variant="ghost"
-            className="bg-zinc-900 border-2 border-gray-400 rounded-full flex
+            className="bg-zinc-900 border-2 border-gray-400 rounded-full flex 
             items-center justify-center h-7 w-7"
             onClick={() => onAddToMyList()}
           >
