@@ -54,7 +54,7 @@ AUTH_SECRET="tu_clave_super_secreta"
 
 # API keys o URLs de servicios externos (si aplica)
 MOVIES_API_KEY="tu_api_key_aqui"ps://github.com/PPOSM1993/netflix.git
-
+```
 
 2. Entra al directorio del proyecto:
 
