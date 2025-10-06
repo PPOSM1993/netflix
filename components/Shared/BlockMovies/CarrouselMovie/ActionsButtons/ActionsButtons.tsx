@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 
-import { ActionsButtonsProps } from "./ActionsButtons.types";
 import { ChevronDown, Play, ThumbsUp, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useLovedFilms } from "@/hooks/use-loved-films";
+import { ActionsButtonsProps } from "./ActionsButttons.type";
 
 export function ActionsButtons(props: ActionsButtonsProps) {
   const { movieId, movie, isMyList } = props;
