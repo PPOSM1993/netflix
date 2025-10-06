@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
-export async function middleware(req) {
+export async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname
 
   // Ignorar rutas internas y páginas públicas
