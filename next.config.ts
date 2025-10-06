@@ -13,8 +13,8 @@ const nextConfig: NextConfig = {
     ],
   },
   eslint: {
-    ignoreDuringBuilds: true, // ✅ Ignora warnings al hacer build
-  },
+    ignoreDuringBuilds: true,
+  }
 };
 
 export default nextConfig;
