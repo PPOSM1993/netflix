@@ -1,19 +1,18 @@
-import { CarouselMovieProps } from "./CarouselMovie.type";
-
 import Image from "next/image";
 
 import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
-
 import { Card, CardContent } from "@/components/ui/card";
-import { FilmGenres } from "@/components/Shared/FilmGenres";
-import { ChaptersInfo } from "@/components/Shared/ChaptersInfo";
+
 import { ActionsButtons } from "./ActionsButtons";
+import { CarouselMovieProps } from "./CarouselMovie.type";
+import { ChaptersInfo } from "../../ChaptersInfo/ChaptersInfo";
+import { FilmGenres } from "../../FilmGenres/FilmGenres";
 
 
 export function CarouselMovie(props: CarouselMovieProps) {
