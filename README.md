@@ -20,6 +20,19 @@ El objetivo es practicar desarrollo **frontend** y **backend**, consumo de APIs,
 
 ## ⚙️ Estructura del proyecto
 
+Aquí una descripción general de los directorios principales:
+
+| Carpeta / Archivo | Contenido |
+|------------------|-----------|
+| `app/`           | Código de las páginas y componentes de Next.js (rutas, layouts, etc.) |
+| `components/ui/` | Componentes reutilizables de interfaz, como cabecera, tarjetas de película/serie, barra de navegación, etc. |
+| `lib/`           | Funciones de utilería / lógica de negocio / llamadas a API etc. |
+| `public/`        | Recursos estáticos: imágenes, íconos, fuentes, etc. |
+| `package.json`   | Dependencias y scripts disponibles. |
+| `tailwind.config.ts` | Configuración de Tailwind CSS. |
+| `next.config.ts` | Configuración específica de Next.js. |
+| Otros archivos de configuración: ESLint, PostCSS, tsconfig, etc.
+=======
 | Carpeta / Archivo     | Contenido |
 |----------------------|-----------|
 | `app/`               | Código de páginas y componentes de Next.js (rutas, layouts, etc.) |
@@ -38,6 +51,8 @@ El objetivo es practicar desarrollo **frontend** y **backend**, consumo de APIs,
 
 Este proyecto utiliza **Prisma** y **PostgreSQL**, por lo que necesitas configurar algunas variables de entorno.
 
+1. Clona este repositorio:
+=======
 1. Entra al directorio del proyecto:
 
    ```bash
@@ -62,8 +77,43 @@ Este proyecto utiliza **Prisma** y **PostgreSQL**, por lo que necesitas configur
    ```
 
 
+2. Entra al directorio del proyecto:
+   ```bash
+   cd netflix
+   ```
+
+3. Crea un archivo .env en la raíz del proyecto:
+   ```bash
+   env
+   # URL de conexión a PostgreSQL
+   DATABASE_URL="postgresql://usuario:password@localhost:5432/mi_base_de_datos?schema=public"
+
+   # Puerto del servidor (opcional, por defecto 3000)
+   PORT=3000
+
+   # Clave secreta para JWT o autenticación
+   AUTH_SECRET="tu_clave_super_secreta"
+
+   # API keys o URLs de servicios externos (si aplica)
+   MOVIES_API_KEY="tu_api_key_aqui"ps://github.com/PPOSM1993/netflix.git
+   ```
+=======
 3. Prisma (schema.prisma) debe apuntar a la variable de entorno DATABASE_URL:
 
+3. Prisma (schema.prisma) debe apuntar a la variable de entorno DATABASE_URL:
+   ```bash
+
+   datasource db {
+   provider = "postgresql"
+   url      = env("DATABASE_URL")
+   }
+   ```
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+4. Entra al directorio del proyecto:
    ```bash
    datasource db {
      provider = "postgresql"
@@ -82,12 +132,21 @@ Este proyecto utiliza **Prisma** y **PostgreSQL**, por lo que necesitas configur
    npx prisma generate
    ```
 
+5. Inicializa tu base de datos y genera el cliente de Prisma:
+   ```bash
+   npx prisma migrate dev --name init
+   npx prisma generate
+   ```
+=======
 4. Instala las dependencias:
 
+6. Instala las dependencias:
    ```bash
    npm install
    ```
 
+7. Inicia el servidor de desarrollo:
+=======
 5. Puedes acceder a las variables en tu código:
    
    ```bash
@@ -101,6 +160,8 @@ Este proyecto utiliza **Prisma** y **PostgreSQL**, por lo que necesitas configur
    npm run dev
    ```
 
+8. Abre la aplicación en tu navegador:
+=======
 6. Abre la aplicación en tu navegador:
     ```bash
       http://localhost:3000
