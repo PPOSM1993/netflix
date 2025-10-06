@@ -24,11 +24,7 @@ export function Terms() {
                 <div className="h-28">
                     {showExtraTerms && (
                         <p className="justify-between text-justify">
-                            The information collected by Google reCAPTCHA is subject to Google is
-                            Privacy Policy and Terms of Service, and is used to provide, maintain,
-                            and improve the reCAPTCHA service, as well as for general security
-                            purposes (Google does not use the information for personalized
-                            advertising).
+                            {"The information collected by Google reCAPTCHA is subject to Google's Privacy Policy and Terms of Service, and is used to provide, maintain, and improve the reCAPTCHA service, as well as for general security purposes (Google does not use the information for personalized advertising)."}
                         </p>
                     )}
                 </div>
