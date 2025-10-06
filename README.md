@@ -40,7 +40,13 @@ El objetivo es practicar desarrollo **frontend** y **backend**, consumo de APIs,
 
 Este proyecto utiliza **Prisma** y **PostgreSQL**, por lo que necesitas configurar algunas variables de entorno.
 
-1. Crea un archivo `.env` en la raíz del proyecto:
+1. Entra al directorio del proyecto:
+
+   ```bash
+   cd netflix
+   ```
+
+2. Crea un archivo `.env` en la raíz del proyecto:
 
 ```env
 # URL de conexión a PostgreSQL
@@ -56,25 +62,44 @@ AUTH_SECRET="tu_clave_super_secreta"
 MOVIES_API_KEY="tu_api_key_aqui"ps://github.com/PPOSM1993/netflix.git
 ```
 
-2. Entra al directorio del proyecto:
 
-   ```bash
-   cd netflix
-   ```
+3. Prisma (schema.prisma) debe apuntar a la variable de entorno DATABASE_URL:
+```
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 
-3. Instala las dependencias:
+generator client {
+  provider = "prisma-client-js"
+}
+```
+
+3. Inicializa tu base de datos y genera el cliente de Prisma:
+```
+npx prisma migrate dev --name init
+npx prisma generate
+```
+
+4. Instala las dependencias:
 
    ```bash
    npm install
    ```
 
-4. Inicia el servidor de desarrollo:
+5. Puedes acceder a las variables en tu código:
+```bash
+const dbUrl = process.env.DATABASE_URL;
+console.log("Conectando a la base de datos:", dbUrl);
+```
+
+5. Inicia el servidor de desarrollo:
 
    ```bash
    npm run dev
    ```
 
-5. Abre la aplicación en tu navegador:
+6. Abre la aplicación en tu navegador:
     ```bash
       http://localhost:3000
       ```
