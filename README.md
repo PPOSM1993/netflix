@@ -28,7 +28,7 @@ Aquí una descripción general de los directorios principales:
 | `package.json`   | Dependencias y scripts disponibles. |
 | `tailwind.config.ts` | Configuración de Tailwind CSS. |
 | `next.config.ts` | Configuración específica de Next.js. |
-| Otros archivos de configuración: ESLint, PostCSS, tsconfig, etc. |
+| Otros archivos de configuración: ESLint, PostCSS, tsconfig, etc.
 
 ---
 
@@ -37,30 +37,66 @@ Aquí una descripción general de los directorios principales:
 Estos son los pasos para levantar el proyecto en tu máquina local:
 
 1. Clona este repositorio:
-
    ```bash
    git clone https://github.com/PPOSM1993/netflix.git
 
 
 2. Entra al directorio del proyecto:
-
    ```bash
    cd netflix
    ```
 
-3. Instala las dependencias:
+3. Crea un archivo .env en la raíz del proyecto:
+   ```bash
+   env
+   # URL de conexión a PostgreSQL
+   DATABASE_URL="postgresql://usuario:password@localhost:5432/mi_base_de_datos?schema=public"
 
+   # Puerto del servidor (opcional, por defecto 3000)
+   PORT=3000
+
+   # Clave secreta para JWT o autenticación
+   AUTH_SECRET="tu_clave_super_secreta"
+
+   # API keys o URLs de servicios externos (si aplica)
+   MOVIES_API_KEY="tu_api_key_aqui"ps://github.com/PPOSM1993/netflix.git
+   ```
+
+3. Prisma (schema.prisma) debe apuntar a la variable de entorno DATABASE_URL:
+   ```bash
+
+   datasource db {
+   provider = "postgresql"
+   url      = env("DATABASE_URL")
+   }
+   ```
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+4. Entra al directorio del proyecto:
+   ```bash
+   cd netflix
+   ```
+
+5. Inicializa tu base de datos y genera el cliente de Prisma:
+   ```bash
+   npx prisma migrate dev --name init
+   npx prisma generate
+   ```
+
+6. Instala las dependencias:
    ```bash
    npm install
    ```
 
-4. Inicia el servidor de desarrollo:
-
+7. Inicia el servidor de desarrollo:
    ```bash
    npm run dev
    ```
 
-5. Abre la aplicación en tu navegador:
+8. Abre la aplicación en tu navegador:
     ```bash
       http://localhost:3000
       ```
