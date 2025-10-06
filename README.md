@@ -1,5 +1,3 @@
-Perfecto, te armo un README.md completo para tu Netflix Clone, incluyendo la sección de .env y Prisma/PostgreSQL, listo para agregar al proyecto:
-
 # Netflix Clone
 
 Este es un clon del sitio de **Netflix**, construido con **Next.js**, usando **TypeScript**, **Tailwind CSS**, y otras herramientas modernas.  
@@ -48,38 +46,41 @@ Este proyecto utiliza **Prisma** y **PostgreSQL**, por lo que necesitas configur
 
 2. Crea un archivo `.env` en la raíz del proyecto:
 
-```env
-# URL de conexión a PostgreSQL
-DATABASE_URL="postgresql://usuario:password@localhost:5432/mi_base_de_datos?schema=public"
-
-# Puerto del servidor (opcional, por defecto 3000)
-PORT=3000
-
-# Clave secreta para JWT o autenticación
-AUTH_SECRET="tu_clave_super_secreta"
-
-# API keys o URLs de servicios externos (si aplica)
-MOVIES_API_KEY="tu_api_key_aqui"ps://github.com/PPOSM1993/netflix.git
-```
+   ```bash
+   env
+   # URL de conexión a PostgreSQL
+   DATABASE_URL="postgresql://usuario:password@localhost:5432/mi_base_de_datos?schema=public"
+   
+   # Puerto del servidor (opcional, por defecto 3000)
+   PORT=3000
+   
+   # Clave secreta para JWT o autenticación
+   AUTH_SECRET="tu_clave_super_secreta"
+   
+   # API keys o URLs de servicios externos (si aplica)
+   MOVIES_API_KEY="tu_api_key_aqui"ps://github.com/PPOSM1993/netflix.git
+   ```
 
 
 3. Prisma (schema.prisma) debe apuntar a la variable de entorno DATABASE_URL:
-```
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
 
-generator client {
-  provider = "prisma-client-js"
-}
-```
+   ```bash
+   datasource db {
+     provider = "postgresql"
+     url      = env("DATABASE_URL")
+   }
+   
+   generator client {
+     provider = "prisma-client-js"
+   }
+   ```
 
 3. Inicializa tu base de datos y genera el cliente de Prisma:
-```
-npx prisma migrate dev --name init
-npx prisma generate
-```
+   
+   ```bash
+   npx prisma migrate dev --name init
+   npx prisma generate
+   ```
 
 4. Instala las dependencias:
 
@@ -88,10 +89,11 @@ npx prisma generate
    ```
 
 5. Puedes acceder a las variables en tu código:
-```bash
-const dbUrl = process.env.DATABASE_URL;
-console.log("Conectando a la base de datos:", dbUrl);
-```
+   
+   ```bash
+   const dbUrl = process.env.DATABASE_URL;
+   console.log("Conectando a la base de datos:", dbUrl);
+   ```
 
 5. Inicia el servidor de desarrollo:
 
